@@ -1,0 +1,28 @@
+
+
+  <div class="container mt-4">
+    <h2>Posts</h2>
+  
+
+  
+    <div *ngFor="let post of posts" class="card mb-3" (click)="goToPost(post)">
+      <div class="card-body">
+        <h5>🖋️{{ post.title }}</h5>
+        <p>📜{{ post.content }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="!posts" class="text-center mt-5">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <h2>✅ Create New</h2>
+    <form (ngSubmit)="createPost()" class="mb-3">
+      <input [(ngModel)]="newPost.title" name="title" class="form-control mb-2" placeholder="Post Title" required>
+      <textarea [(ngModel)]="newPost.content" name="content" class="form-control mb-2" placeholder="Post Content" required></textarea>
+      <button type="submit" class="btn btn-primary">Create Post</button>
+    </form>
+  </div>
+  

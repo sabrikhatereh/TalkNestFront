@@ -1,0 +1,25 @@
+
+
+<div class="container mt-4" *ngIf="post">
+   <!-- Back Button -->
+ <button class="btn btn-secondary mb-3" (click)="goBack()">
+  <i class="bi bi-arrow-left-circle me-2"></i> <!-- Bootstrap icon -->
+  Back to Posts
+</button>
+
+    <h2>🖋️{{ post.title }}</h2>
+    <p>📜{{ post.content }}</p>
+
+    <div >
+        <h4>Comments 💬</h4>
+        <ul>
+          <li *ngFor="let comment of post.comments">{{ comment.text }}</li>
+        </ul>
+      </div>
+  
+    <form (ngSubmit)="addComment()">
+      <textarea [(ngModel)]="newComment" name="comment" class="form-control mb-2" placeholder="Write a comment..." required></textarea>
+      <button type="submit" class="btn btn-primary">Add Comment</button>
+    </form>
+  </div>
+  
